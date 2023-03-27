@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom"
 
 
 function App() {
-  return (
+return (
     <> 
      <nav>
                 <Link to="/">Home</Link>
