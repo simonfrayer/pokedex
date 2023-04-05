@@ -21,6 +21,8 @@ function PokemonDetails() {
           .then(setPokemon)
     }
 
+    //get abilities, stats, types ...
+
     return (
       <> 
        <div className="wrapperDetails">
