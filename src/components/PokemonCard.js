@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
-import '../css/pokemonCard.css'
+import { Link } from "react-router-dom"
 
+import '../css/pokemonCard.css'
 
 function PokemonCard({url}) {
   let [pokemon, setPokemon] = useState([])
@@ -20,13 +21,14 @@ function PokemonCard({url}) {
 
         return (
             <>
-            <div className='card'>
-                <div className='credentials'>
-                    <span className='id'>#{pokemon.id}</span>
-                    <span>{pokemon.name}</span>
-                </div>
-
-            </div>
+            <Link to="/details" state={url} className='card'>
+                    <div className='credentials'>
+                        <span className='id'>#{pokemon.id}</span>
+                        <span>{pokemon.name}</span>
+                    </div>
+                    
+                    {/* <img src={pokemon.sprites.front_default} alt="pokemonPicture"></img> */}
+            </Link>
             </>
         );
 }
