@@ -1,13 +1,19 @@
 import {useEffect, useState} from 'react'
 import PokemonCard from "../components/PokemonCard"
+import '../css/pokedex.css'
 
 function Pokedex() {
   let [pokemons, setPokemons] = useState([])
+  const [page, setPage] = useState(0);
   let limit = 20
-  let offset = 0;
+  const offset = 20;
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=' + limit + '&offset=' + offset)
+    fetchPokemons()
+  },[])
+
+  function fetchPokemons(){
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=' + limit + '&offset=' + offset * page)
             .then(response => {
               if (!response.ok) throw new Error("Response was not ok!")
               return response.json()
@@ -17,7 +23,6 @@ function Pokedex() {
             })
             .then(urls => {
               return urls.map(url => {
-                console.log(url)
                 return <PokemonCard url={url} key={url}></PokemonCard>
               });
             })
@@ -25,12 +30,33 @@ function Pokedex() {
             .catch(err => {
               alert(err)
             })
-  },[])
+  }
 
-  console.log(pokemons)
+  function handlePaginationClick(nominator){
+    if(nominator === '+'){
+      setPage(page + 1)
+    }
+    if(nominator === '-'){
+      if(page === 0) return
+      setPage(page - 1)
+    }
+  }
+
+  useEffect(() => {
+    fetchPokemons()
+  }, [page])
+
     return (
       <> 
-       {pokemons}
+      <div className='wrapper'>
+        {pokemons}
+      </div>
+       
+       <div className='pagination'>
+          <button className='pagButton' onClick={() => handlePaginationClick("-")}>Previous</button>
+          <span>Page {page + 1}</span>
+          <button className='pagButton' onClick={() => handlePaginationClick("+")}>Next</button>
+       </div>
       </>
     );
   }
