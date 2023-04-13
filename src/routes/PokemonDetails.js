@@ -20,6 +20,7 @@ function PokemonDetails() {
     //get abilities, stats, types ...
     const abilities = pokemon?.abilities?.map(data => data.ability.name + ", ")
     const types = pokemon?.types?.map(data => data.type.name + ", ")
+    const stats = pokemon?.stats?.map(data => data.stat.name + ": " + data.base_stat)
 
     return (
       <> 
@@ -36,6 +37,13 @@ function PokemonDetails() {
         <span><b>Abilities:</b> {abilities}</span>
         <span><b>Types:</b> {types}</span>
         </div>
+      </div>
+      <div className="stats">
+        {
+          stats?.map(item => {
+            return <span key={item}>{item}</span>
+          })
+        }
       </div>
        </div>
       </>

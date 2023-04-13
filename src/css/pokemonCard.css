@@ -7,7 +7,7 @@
     margin: 1vw;
     width: 20%;
     border: 1px solid black;
-    border-radius: 5%;
+    border-radius:10px;
     box-shadow: 1px 1px 7px -4px rgba(0,0,0,0.75);
     text-decoration: none;
 }
