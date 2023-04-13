@@ -19,8 +19,6 @@ function PokemonCard({url}) {
         .then(setPokemon)
   }
 
-  console.log(pokemon.sprites)
-
         return (
             <>
             <Link to="/details" state={url} className='card'>
