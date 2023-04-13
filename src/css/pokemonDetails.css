@@ -23,3 +23,7 @@
 .stats span{
     margin: 10px;
 }
+
+.wrapperDetails img{
+    max-width: fit-content;
+}

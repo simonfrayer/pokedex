@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import '../css/pokemonCard.css'
 
 function PokemonCard({url}) {
-  let [pokemon, setPokemon] = useState([])
+  const [pokemon, setPokemon] = useState([])
 
   useEffect(() => {
     fetchPokemon()
@@ -19,6 +19,8 @@ function PokemonCard({url}) {
         .then(setPokemon)
   }
 
+  console.log(pokemon.sprites)
+
         return (
             <>
             <Link to="/details" state={url} className='card'>
@@ -27,7 +29,7 @@ function PokemonCard({url}) {
                         <span>{pokemon.name}</span>
                     </div>
                     
-                    {/* <img src={pokemon.sprites.front_default} alt="pokemonPicture"></img> */}
+                    <img src={pokemon?.sprites?.front_default} alt="pokemonPicture"></img>
             </Link>
             </>
         );

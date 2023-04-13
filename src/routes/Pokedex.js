@@ -3,14 +3,14 @@ import PokemonCard from "../components/PokemonCard"
 import '../css/pokedex.css'
 
 function Pokedex() {
-  let [pokemons, setPokemons] = useState([])
+  const [pokemons, setPokemons] = useState([])
   const [page, setPage] = useState(0);
   let limit = 20
   const offset = 20;
 
   useEffect(() => {
     fetchPokemons()
-  },[])
+  },[page])
 
   function fetchPokemons(){
     fetch('https://pokeapi.co/api/v2/pokemon?limit=' + limit + '&offset=' + offset * page)
@@ -41,10 +41,6 @@ function Pokedex() {
       setPage(page - 1)
     }
   }
-
-  useEffect(() => {
-    fetchPokemons()
-  }, [page])
 
     return (
       <> 
