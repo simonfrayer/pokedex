@@ -22,12 +22,21 @@ function PokemonDetails() {
     const types = pokemon?.types?.map(data => data.type.name + ", ")
     const stats = pokemon?.stats?.map(data => data.stat.name + ": " + data.base_stat)
 
+    function getNameWithCapital(name){
+      if(name === undefined)
+        return
+        
+      const str = name.slice(1)
+      const str2 = name.charAt(0).toUpperCase() + str
+      return str2
+    }
+
     return (
       <> 
        <div className="wrapperDetails">
        <img src={pokemon?.sprites?.front_default} alt="pokemonPicture"></img>
 
-      <h1>{pokemon.name}</h1>
+      <h1>{getNameWithCapital(pokemon.name)}</h1>
       <div className="stats">
         <div className="statsLeft">
           <span><b>Weight: </b> {pokemon.weight}</span>

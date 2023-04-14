@@ -44,6 +44,8 @@ function Pokedex() {
 
     return (
       <> 
+      <h1 className='heading'>Frayer's Pokedex</h1>
+      <img src='https://www.thewandcompany.com/wp-content/uploads/2020/11/Poke-Ball-on-white-2kx2kpx-1024x1024.jpg' alt='pokeball' className='pokeballImg'></img>
       <div className='wrapper'>
         {pokemons}
       </div>

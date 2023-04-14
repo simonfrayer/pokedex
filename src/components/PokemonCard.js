@@ -19,12 +19,21 @@ function PokemonCard({url}) {
         .then(setPokemon)
   }
 
+  function getNameWithCapital(name){
+    if(name === undefined)
+      return
+      
+    const str = name.slice(1)
+    const str2 = name.charAt(0).toUpperCase() + str
+    return str2
+  }
+
         return (
             <>
             <Link to="/details" state={url} className='card'>
                     <div className='credentials'>
                         <span className='id'>#{pokemon.id}</span>
-                        <span>{pokemon.name}</span>
+                        <span>{getNameWithCapital(pokemon.name)}</span>
                     </div>
                     
                     <img src={pokemon?.sprites?.front_default} alt="pokemonPicture"></img>
