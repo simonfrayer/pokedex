@@ -28,3 +28,9 @@
 .card img{
     max-width: 80px;
 }
+
+@media(max-width: 768px) {
+    .card{
+        width: 90%;
+    }
+}

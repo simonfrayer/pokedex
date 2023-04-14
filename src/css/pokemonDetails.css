@@ -28,3 +28,14 @@
 .wrapperDetails img{
     max-width: fit-content;
 }
+
+@media (max-width: 768px){
+    .stats{
+        flex-direction: column;
+    }
+
+    span{
+        display: flex;
+        justify-content: center;
+    }
+}

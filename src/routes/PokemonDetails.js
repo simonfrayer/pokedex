@@ -30,12 +30,12 @@ function PokemonDetails() {
       <h1>{pokemon.name}</h1>
       <div className="stats">
         <div className="statsLeft">
-          <span><b>Weight:</b> {pokemon.weight}</span>
-          <span><b>Height:</b> {pokemon.height}</span>
+          <span><b>Weight: </b> {pokemon.weight}</span>
+          <span><b>Height: </b> {pokemon.height}</span>
         </div>
         <div className="statsRight">
-        <span><b>Abilities:</b> {abilities}</span>
-        <span><b>Types:</b> {types}</span>
+        <span><b>Abilities: </b> {abilities}</span>
+        <span><b>Types: </b> {types}</span>
         </div>
       </div>
       <div className="stats">
