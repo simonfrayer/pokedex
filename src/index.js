@@ -21,7 +21,7 @@ const router = createHashRouter([
               element: <About />,
           },
           {
-            path: "/details",
+            path: "/pokemon/:id",
             element: <PokemonDetails />,
         },
       ],

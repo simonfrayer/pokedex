@@ -1,21 +1,21 @@
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {useState, useEffect} from 'react'
 import '../css/pokemonDetails.css'
 
 function PokemonDetails() {
   const [pokemon, setPokemon] = useState([null])
 
-    const location = useLocation()
-    const propsDataUrl = location.state
+    const {id} = useParams();
+    console.log(id)
 
     useEffect(() => {
-      fetch(propsDataUrl)
+      fetch("https://pokeapi.co/api/v2/pokemon/" + id)
           .then(response => {
               if(!response.ok) throw new Error("Response was not ok")
               return response.json()
           })
           .then(setPokemon)
-    },[propsDataUrl])
+    },[id])
 
     //get abilities, stats, types ...
     const abilities = pokemon?.abilities?.map(data => data.ability.name + ", ")

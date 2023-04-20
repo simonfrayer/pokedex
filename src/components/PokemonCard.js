@@ -30,7 +30,7 @@ function PokemonCard({url}) {
 
         return (
             <>
-            <Link to="/details" state={url} className='card'>
+            <Link to={"/pokemon/" + pokemon.id} className='card'>
                     <div className='credentials'>
                         <span className='id'>#{pokemon.id}</span>
                         <span>{getNameWithCapital(pokemon.name)}</span>
