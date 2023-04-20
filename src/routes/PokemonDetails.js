@@ -6,7 +6,6 @@ function PokemonDetails() {
   const [pokemon, setPokemon] = useState([null])
 
     const {id} = useParams();
-    console.log(id)
 
     useEffect(() => {
       fetch("https://pokeapi.co/api/v2/pokemon/" + id)
