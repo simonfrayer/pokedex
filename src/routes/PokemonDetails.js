@@ -33,7 +33,7 @@ function PokemonDetails() {
     return (
       <> 
        <div className="wrapperDetails">
-       <img src={pokemon?.sprites?.front_default} alt="pokemonPicture"></img>
+       <img src={pokemon?.sprites?.other?.dream_world.front_default} alt="pokemonPicture"></img>
 
       <h1>{getNameWithCapital(pokemon.name)}</h1>
       <div className="stats">
